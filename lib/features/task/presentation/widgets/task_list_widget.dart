@@ -10,12 +10,16 @@ class TaskListWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     final taskProvider = Provider.of<TaskProvider>(context);
 
-    return ListView.builder(
-      itemCount: taskProvider.tasks.length,
-      itemBuilder: (context, index) {
-        final task = taskProvider.tasks[index];
-        return TaskItemWidget(task: task, index: index);
-      },
-    );
+    return taskProvider.tasks.isNotEmpty
+        ? ListView.builder(
+            itemCount: taskProvider.tasks.length,
+            itemBuilder: (context, index) {
+              final task = taskProvider.tasks[index];
+              return TaskItemWidget(task: task, index: index);
+            },
+          )
+        : const Center(
+            child: Text('No tasks available'),
+          );
   }
 }

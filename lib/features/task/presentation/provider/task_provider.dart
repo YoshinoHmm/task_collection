@@ -44,6 +44,12 @@ class TaskProvider with ChangeNotifier {
     await _saveTasks();
   }
 
+  Future<List<Task>> searchTask(String query) async {
+    final searchedTasks =
+        _tasks.where((task) => task.title.contains(query)).toList();
+    return searchedTasks;
+  }
+
   Future<void> toggleTaskCompletion(int index) async {
     _tasks[index] =
         _tasks[index].copyWith(isCompleted: !_tasks[index].isCompleted);

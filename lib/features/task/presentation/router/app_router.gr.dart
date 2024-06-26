@@ -8,21 +8,23 @@
 // coverage:ignore-file
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
-import 'package:auto_route/auto_route.dart' as _i3;
-import 'package:flutter/material.dart' as _i4;
-import 'package:task_collection/features/task/domain/entities/task.dart' as _i5;
+import 'package:auto_route/auto_route.dart' as _i4;
+import 'package:flutter/material.dart' as _i5;
+import 'package:task_collection/features/task/domain/entities/task.dart' as _i6;
 import 'package:task_collection/features/task/presentation/pages/home_page.dart'
     as _i1;
 import 'package:task_collection/features/task/presentation/pages/task_edit_page.dart'
     as _i2;
+import 'package:task_collection/features/task/presentation/pages/task_search_page.dart'
+    as _i3;
 
-abstract class $AppRouter extends _i3.RootStackRouter {
+abstract class $AppRouter extends _i4.RootStackRouter {
   $AppRouter({super.navigatorKey});
 
   @override
-  final Map<String, _i3.PageFactory> pagesMap = {
+  final Map<String, _i4.PageFactory> pagesMap = {
     HomeRoute.name: (routeData) {
-      return _i3.AutoRoutePage<dynamic>(
+      return _i4.AutoRoutePage<dynamic>(
         routeData: routeData,
         child: const _i1.HomePage(),
       );
@@ -30,7 +32,7 @@ abstract class $AppRouter extends _i3.RootStackRouter {
     TaskEditRoute.name: (routeData) {
       final args = routeData.argsAs<TaskEditRouteArgs>(
           orElse: () => const TaskEditRouteArgs());
-      return _i3.AutoRoutePage<dynamic>(
+      return _i4.AutoRoutePage<dynamic>(
         routeData: routeData,
         child: _i2.TaskEditPage(
           key: args.key,
@@ -39,13 +41,19 @@ abstract class $AppRouter extends _i3.RootStackRouter {
         ),
       );
     },
+    TaskSearchRoute.name: (routeData) {
+      return _i4.AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const _i3.TaskSearchPage(),
+      );
+    },
   };
 }
 
 /// generated route for
 /// [_i1.HomePage]
-class HomeRoute extends _i3.PageRouteInfo<void> {
-  const HomeRoute({List<_i3.PageRouteInfo>? children})
+class HomeRoute extends _i4.PageRouteInfo<void> {
+  const HomeRoute({List<_i4.PageRouteInfo>? children})
       : super(
           HomeRoute.name,
           initialChildren: children,
@@ -53,17 +61,17 @@ class HomeRoute extends _i3.PageRouteInfo<void> {
 
   static const String name = 'HomeRoute';
 
-  static const _i3.PageInfo<void> page = _i3.PageInfo<void>(name);
+  static const _i4.PageInfo<void> page = _i4.PageInfo<void>(name);
 }
 
 /// generated route for
 /// [_i2.TaskEditPage]
-class TaskEditRoute extends _i3.PageRouteInfo<TaskEditRouteArgs> {
+class TaskEditRoute extends _i4.PageRouteInfo<TaskEditRouteArgs> {
   TaskEditRoute({
-    _i4.Key? key,
-    _i5.Task? task,
+    _i5.Key? key,
+    _i6.Task? task,
     int? index,
-    List<_i3.PageRouteInfo>? children,
+    List<_i4.PageRouteInfo>? children,
   }) : super(
           TaskEditRoute.name,
           args: TaskEditRouteArgs(
@@ -76,8 +84,8 @@ class TaskEditRoute extends _i3.PageRouteInfo<TaskEditRouteArgs> {
 
   static const String name = 'TaskEditRoute';
 
-  static const _i3.PageInfo<TaskEditRouteArgs> page =
-      _i3.PageInfo<TaskEditRouteArgs>(name);
+  static const _i4.PageInfo<TaskEditRouteArgs> page =
+      _i4.PageInfo<TaskEditRouteArgs>(name);
 }
 
 class TaskEditRouteArgs {
@@ -87,9 +95,9 @@ class TaskEditRouteArgs {
     this.index,
   });
 
-  final _i4.Key? key;
+  final _i5.Key? key;
 
-  final _i5.Task? task;
+  final _i6.Task? task;
 
   final int? index;
 
@@ -97,4 +105,18 @@ class TaskEditRouteArgs {
   String toString() {
     return 'TaskEditRouteArgs{key: $key, task: $task, index: $index}';
   }
+}
+
+/// generated route for
+/// [_i3.TaskSearchPage]
+class TaskSearchRoute extends _i4.PageRouteInfo<void> {
+  const TaskSearchRoute({List<_i4.PageRouteInfo>? children})
+      : super(
+          TaskSearchRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'TaskSearchRoute';
+
+  static const _i4.PageInfo<void> page = _i4.PageInfo<void>(name);
 }

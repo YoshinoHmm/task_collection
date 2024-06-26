@@ -37,7 +37,9 @@ class TaskItemWidget extends StatelessWidget {
           },
         ),
         onTap: () {
-          AutoRouter.of(context).push(TaskEditRoute(task: task, index: index));
+          AutoRouter.of(context).push(
+            TaskEditRoute(task: task, index: index),
+          );
         },
       ),
     );

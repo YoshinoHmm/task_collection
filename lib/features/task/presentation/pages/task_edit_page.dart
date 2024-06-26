@@ -74,7 +74,8 @@ class TaskEditPage extends StatelessWidget {
                         onPressed: () {
                           Provider.of<TaskProvider>(context, listen: false)
                               .deleteTask(index!);
-                          AutoRouter.of(context).popForced();
+                          AutoRouter.of(context)
+                              .popUntilRouteWithName('HomeRoute');
                         },
                         child: const Text('Delete'),
                       )

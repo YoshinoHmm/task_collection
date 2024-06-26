@@ -12,6 +12,14 @@ class HomePage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Task Collection'),
+        actions: [
+          IconButton(
+            onPressed: () {
+              AutoRouter.of(context).push(const TaskSearchRoute());
+            },
+            icon: const Icon(Icons.search),
+          ),
+        ],
       ),
       body: const Padding(
         padding: EdgeInsets.all(16.0),
